@@ -27,7 +27,7 @@ async def on_ready():
     print("Logged in as " + str(bot.user.name) + " (ID: " + str(bot.user.id) + ")")
     #bot.activity = discord.Game(name='g')
 
-@bot.command(name='hello', help='Are you sure you want to do this?')
+@bot.command(name='hello', help='Are you sure you want to do this???')
 async def greetings(ctx):
     msg = '***loud screeching noise***'
     await ctx.send(msg)
