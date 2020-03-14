@@ -19,7 +19,7 @@ random.seed(COMPILE_TIME)
 bot = commands.Bot(command_prefix=PREFIX)
 
 bot.load_extension('bot_owner')
-bot.load_extension('bot_info')
+#bot.load_extension('bot_info')
 bot.load_extension('bot_util')
 bot.load_extension('bot_time')
 
@@ -40,6 +40,14 @@ async def reload(ctx, extension):
     await ctx.send('Reloading ' + str(extension) + '...')
     print('Reloading ' + str(extension) + '...')
     await bot.reload_extension(extension)
+
+@bot.command(name='info', help='Lists bot info')
+async def getinfo(ctx):
+    embed = discord.Embed(title="Sentry Info", colour=discord.Colour(0x1))
+    embed.set_footer(text="Last Run: " + COMPILE_TIME)
+    embed.add_field(name=PREFIX, value="Prefix for all commands")
+    embed.add_field(name="Other", value="This could be considered info i guess")
+    await ctx.send(embed=embed)
 
 @bot.event
 async def on_command_error(ctx, error):
