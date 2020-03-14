@@ -21,6 +21,7 @@ bot = commands.Bot(command_prefix=PREFIX)
 bot.load_extension('bot_owner')
 bot.load_extension('bot_info')
 bot.load_extension('bot_util')
+bot.load_extension('bot_time')
 
 @bot.event
 async def on_ready():

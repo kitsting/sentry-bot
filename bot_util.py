@@ -65,5 +65,16 @@ class UtilCommands(commands.Cog):
         ]
         await ctx.send("Fun Fact: " + random.choice(vanadiusfacts))
 
+
+    @commands.command(name = 'copypasta', help = 'Returns Copypasta. Arguments: idk',hidden=1)
+    async def copypasta(self, ctx, type='none'):
+        if type == 'idk':
+            await ctx.send('''Idk is an abbreviation of the phrase I don’t know. Idk is part of the newly developed dialect called text speak or SMS language. This dialect is mostly used in informal communication, and especially when communicating via text messages or instant messages. The phrase idk has been part of text speak since at least 2002.
+            
+You can use idk the same way you use the phrase I don’t know. In informal writing, and especially in text messages, the rules of capitalization are lax at best, so you can choose how you want to treat idk. The one rule that has come about in text speak is that writing a word in all caps means you’re either shouting it or are otherwise trying to emphasize it or amplify its effect. If you’re using idk in a more formal context, you should always make sure you capitalize it—or not—consistently.''')
+
+        if type != 'idk':
+            await ctx.send('You most specify and argument you fool')
+
 def setup(bot):
     bot.add_cog(UtilCommands(bot))
