@@ -99,5 +99,56 @@ You can use idk the same way you use the phrase I don’t know. In informal writ
             await ctx.send('Give a time in whole seconds.')
 
 
+    @commands.command(name = 'sciquote', help = 'Give a quote from Black Mesa\'s very own')
+    async def sciquote(self,ctx):
+        scientistquotes = [
+            'Do you think we should appeal to the *alien* authorities?',
+            'I am rather looking forward to this analysis, aren\'t you?',
+            'Are you thinking what I\'m thinking?',
+            'Have you been able to get the beverage machine to work yet?',
+            'Quick! It\'s about to go critical!',
+            'Good morning, Gordon.',
+            'Now, now, if you follow standard insertion procedures, everything will be fine.',
+            'I...I can\'t hold on much...longer...',
+            'I\'m not so sure I want to get to the surface. What if the world finds out what we were doing down here?',
+            'Take me with you! I\'m the one man who knows everything!',
+            'Oh my God...we\'re doomed!',
+            'Don\'t shoot! I\'m with the science team!',
+            'No...No! No! Get it off me! Get it off! Get it off!',
+            'Freeman, you fool!',
+            'It can\'t get any worse than this.',
+            'I can\'t take much more of this.',
+            'You are completely wrong.',
+            'No, I don\'t want to die!',
+            'Do you know who ate all the donuts?',
+            'Have you ever seen anything like this?',
+            'Don''t you find this all rather fascinating?',
+            'Freeman.',
+            'Don\'t you find this all rather fascinating?',
+            'I believe this will make for a notable paper, don\'t you?',
+            'Don\'t worry, I am a doctor.',
+            'Someone has hidden my glasses again.',
+            'I certainly hope you know what you\'re doing.',
+            'I predicted all of this, you know. All of it!',
+            'Kindly lower your voice.',
+            'This is madness! I\'m getting out of here!',
+            'I\'d give my right hemisphere for a few hours of sleep.',
+            'Well, there goes our grant money.',
+            'You\'ll just have to wait until *after* the test.',
+            'Please, leave me *alone* until after the experiment.',
+            'I can\'t be bothered right now.',
+            'Excuse me, Gordon, but I\'m rather busy now.',
+            'Weren\'t you supposed to be in the test chamber half an hour ago?',
+            'Shut up.',
+            'You aren\'t going soft on that ethics issue again, are you?',
+            'I believe something smells quite foul here.',
+            'Stop asking that question.',
+            'Why do we all have to wear these *ridiculous* ties?',
+            'My God, *what* are you doing?',
+            'Who is responsible for this mess?',
+            'Ah, you\'ve been wounded.',
+        ]
+        await ctx.send(random.choice(scientistquotes))
+
 def setup(bot):
     bot.add_cog(UtilCommands(bot))

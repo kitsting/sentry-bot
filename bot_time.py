@@ -2,6 +2,7 @@ from discord.ext import commands
 import requests
 from bs4 import BeautifulSoup
 
+uspop = 330436532
 
 class UpdateCommands(commands.Cog):
 
@@ -21,10 +22,17 @@ class UpdateCommands(commands.Cog):
         results2 = soup.find_all(class_="number-table")
         deaths = results2[3]
         discharged = results2[2]
+        #print(int(currentcases.text))
+        percentinfected = format((int(currentcases.text.replace(',',''))/uspop)*100,'.5f')
+        #infectedfinal = format(percentinfected,'.5f')
+        percentdead = format((int(deaths.text.replace(',',''))/uspop)*100,'.5f')
+
+
         #print(results2)
         await ctx.send("Confirmed Active US Cases: " + currentcases.text)
         await ctx.send("Confirmed US Deaths: "+deaths.text)
         await ctx.send("Discharged from Hospital/Recovered: " + discharged.text)
+        await ctx.send("About "+str(percentinfected)+"% of pop. are infected and "+str(percentdead)+"% have died.")
 
 
 
