@@ -20,9 +20,12 @@ class UpdateCommands(commands.Cog):
         print("getting deaths")
         results2 = soup.find_all(class_="number-table")
         deaths = results2[3]
-        #print(results2[3])
+        discharged = results2[2]
+        #print(results2)
         await ctx.send("Confirmed Active US Cases: " + currentcases.text)
         await ctx.send("Confirmed US Deaths: "+deaths.text)
+        await ctx.send("Discharged from Hospital/Recovered: " + discharged.text)
+
 
 
 def setup(bot):

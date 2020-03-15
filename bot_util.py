@@ -76,5 +76,28 @@ You can use idk the same way you use the phrase I don’t know. In informal writ
         if type != 'idk':
             await ctx.send('You most specify and argument you fool')
 
+
+    @commands.command(name = 'bruh', help = 'Bruh Moment')
+    async def bruh(self,ctx):
+        bruh_moments = [
+            'Bruh Moment',
+            'This is a certified Bruh Moment',
+            'Bruh',
+        ]
+        await ctx.send(random.choice(bruh_moments))
+
+
+    @commands.command(name = 'sentryspeed', help = 'Calculate the speed of a sentry. Arguments: Time in seconds')
+    async def sentryspeed(self,ctx,secs=0):
+        print(secs)
+        if isinstance(secs,int):
+            base_speed = 5
+            added = secs/5
+            speedtime = base_speed+added
+            await ctx.send('A Sentry would be moving '+str(speedtime)+'MPH after '+str(secs)+' seconds')
+        else:
+            await ctx.send('Give a time in whole seconds.')
+
+
 def setup(bot):
     bot.add_cog(UtilCommands(bot))
