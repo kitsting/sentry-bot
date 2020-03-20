@@ -147,6 +147,9 @@ You can use idk the same way you use the phrase I don’t know. In informal writ
             'My God, *what* are you doing?',
             'Who is responsible for this mess?',
             'Ah, you\'ve been wounded.',
+            'https://www.youtube.com/watch?v=NMk6LLDGp5I',
+            'https://www.youtube.com/watch?v=yv-7D3XQ9ww',
+            'https://www.youtube.com/watch?v=WotwTcGVYuE',
         ]
         await ctx.send(random.choice(scientistquotes))
 

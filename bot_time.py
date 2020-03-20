@@ -29,9 +29,9 @@ class UpdateCommands(commands.Cog):
 
 
         #print(results2)
-        await ctx.send("Confirmed Active US Cases: " + currentcases.text)
-        await ctx.send("Confirmed US Deaths: "+deaths.text)
-        await ctx.send("Discharged from Hospital/Recovered: " + discharged.text)
+        await ctx.send("Confirmed Active US Cases: " + currentcases.text.strip())
+        await ctx.send("Confirmed US Deaths: " + deaths.text.strip())
+        await ctx.send("Discharged from Hospital/Recovered: " + discharged.text.strip())
         await ctx.send("About "+str(percentinfected)+"% of pop. are infected and "+str(percentdead)+"% have died.")
 
 
