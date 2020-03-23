@@ -14,26 +14,29 @@ class UpdateCommands(commands.Cog):
     async def corona(self,ctx):
         page = requests.get("https://www.worldometers.info/coronavirus/country/us")
         soup = BeautifulSoup(page.content,'html.parser')
-        print("getting cases")
-        results1 = soup.find_all(class_="number-table-main")
-        currentcases = results1[0]
-        #print("Confirmed Active US Cases: "+currentcases.text)
-        print("getting deaths")
-        results2 = soup.find_all(class_="number-table")
-        deaths = results2[3]
-        discharged = results2[2]
-        #print(int(currentcases.text))
-        percentinfected = format((int(currentcases.text.replace(',',''))/uspop)*100,'.5f')
-        #infectedfinal = format(percentinfected,'.5f')
-        percentdead = format((int(deaths.text.replace(',',''))/uspop)*100,'.5f')
 
+        print("getting US info")
+        results2 = soup.find_all(class_="maincounter-number")
+        deaths = results2[1].text.strip()#.text.strip()
+        discharged = results2[2].text.strip()#.text.strip()
+        currentcases = results2[0].text.strip()# - int(deaths.text.replace(',',''))+int(discharged.text.replace(',',''))
+        print(currentcases)
+
+        currentcases = str(int(currentcases.replace(',',''))-int(deaths.replace(',',''))-int(discharged.replace(',','')))
+        currentcases = str(format(int(currentcases),',.0f'))
+
+        percentinfected = format((int(currentcases.replace(',',''))/uspop)*100,'.4f')
+        percentdead = format((int(deaths.replace(',',''))/uspop)*100,'.4f')
 
         #print(results2)
-        await ctx.send("Confirmed Active US Cases: " + currentcases.text.strip())
-        await ctx.send("Confirmed US Deaths: " + deaths.text.strip())
-        await ctx.send("Discharged from Hospital/Recovered: " + discharged.text.strip())
+        await ctx.send("Active US Cases: " + currentcases+"\nUS Deaths: " + deaths+"\nRecovered: " + discharged)
+        #await ctx.send("\nUS Deaths: " + deaths)
+        #await ctx.send("Recovered: " + discharged)
         await ctx.send("About "+str(percentinfected)+"% of pop. are infected and "+str(percentdead)+"% have died.")
 
+ #       print("Getting AZ info")
+#       results3 = soup.find_all(class_="odd")
+ #       print(results3)
 
 
 def setup(bot):

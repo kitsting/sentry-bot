@@ -26,6 +26,7 @@ bot.load_extension('bot_time')
 @bot.event
 async def on_ready():
     print("Logged in as " + str(bot.user.name) + " (ID: " + str(bot.user.id) + ")")
+    await bot.change_presence(activity=discord.Game(name="Vanadius | Prefix: "+PREFIX))
     #bot.activity = discord.Game(name='g')
 
 @bot.command(name='hello', help='Are you sure you want to do this???')
