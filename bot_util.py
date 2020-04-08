@@ -153,5 +153,30 @@ You can use idk the same way you use the phrase I don’t know. In informal writ
         ]
         await ctx.send(random.choice(scientistquotes))
 
+    @commands.command(name = 'guardquote', help = 'Give a quote from Barney Calhoun')
+    async def guardquote(self,ctx):
+        guardquotes = [
+            "You aren't scared, are you?",
+            "I wish it hadn't come to this.",
+            "Hey, catch me later, I'll buy you a beer.",
+            "Can we do this later?",
+            "What do you want on your tombstone?",
+            "I have a bad feeling about this.",
+            "Now I wonder if those boys could have made a bigger mess.",
+            "I'm never gonna make it. You better go on without me.",
+            "What is this thing? Some kinda weapon?",
+            "I'll bet that stings a bit.",
+            "I would really like a cold one right now.",
+            "Any idea how many of our crew have died?",
+            "It can't get any worse than this, can it?",
+            "I'd like to get my hands on the guy responsible for this mess.",
+            "Our luck has to change sooner or later.",
+            "You don't still think this is a drill, do you?",
+            "You have any idea what's going on?",
+            "You ever seen anything like this?",
+            "This is all happening because of you scientists!",
+        ]
+        await ctx.send(random.choice(guardquotes))
+
 def setup(bot):
     bot.add_cog(UtilCommands(bot))
