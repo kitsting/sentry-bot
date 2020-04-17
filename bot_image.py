@@ -17,6 +17,10 @@ class Image(commands.Cog):
 	async def epic(self,ctx):
 		await ctx.send(file=discord.File('videos/epic.mp4'))
 
+	@commands.command(name='bell',help='School lazy')
+	async def bell(self,ctx):
+		await ctx.send(file=discord.File('audio/school_lazy.mp3'))
+
 
 def setup(bot):
 	bot.add_cog(Image(bot))
