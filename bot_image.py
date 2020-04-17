@@ -13,6 +13,10 @@ class Image(commands.Cog):
 	async def noarms(self, ctx):
 		await ctx.send(file=discord.File('gifs/PlayerWalkRightBobNoArms.gif'))
 
+	@commands.command(name='epic',help='Conveys a strong Gamer™ energy')
+	async def epic(self,ctx):
+		await ctx.send(file=discord.File('videos/epic.mp4'))
+
 
 def setup(bot):
 	bot.add_cog(Image(bot))

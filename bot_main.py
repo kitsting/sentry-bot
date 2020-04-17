@@ -51,6 +51,10 @@ async def getinfo(ctx):
     embed.add_field(name="Other", value="This could be considered info i guess")
     await ctx.send(embed=embed)
 
+@bot.command(name='invite', help='Get a link to put this... thing... in your server',hidden=1)
+async def botinvite(ctx):
+	await ctx.send('https://discordapp.com/api/oauth2/authorize?client_id=527617937268277258&permissions=0&scope=bot')
+
 @bot.event
 async def on_command_error(ctx, error):
     if isinstance(error, commands.errors.CheckFailure):
