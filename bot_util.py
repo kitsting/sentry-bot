@@ -1,7 +1,6 @@
 from discord.ext import commands
 import random
 import time
-import math
 
 def GetRand():
     random.seed(time.ctime())

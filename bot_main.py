@@ -3,7 +3,6 @@
 import discord
 import random
 import time
-import math
 import os
 from dotenv import load_dotenv
 from discord.ext import commands
@@ -23,6 +22,7 @@ bot.load_extension('bot_owner')
 #bot.load_extension('bot_info')
 bot.load_extension('bot_util')
 bot.load_extension('bot_time')
+bot.load_extension('bot_image')
 
 @bot.event
 async def on_ready():

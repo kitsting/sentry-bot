@@ -25,8 +25,8 @@ class UpdateCommands(commands.Cog):
         currentcases = str(int(currentcases.replace(',',''))-int(deaths.replace(',',''))-int(discharged.replace(',','')))
         currentcases = str(format(int(currentcases),',.0f'))
 
-        percentinfected = format((int(currentcases.replace(',',''))/uspop)*100,'.4f')
-        percentdead = format((int(deaths.replace(',',''))/uspop)*100,'.4f')
+        percentinfected = format((int(currentcases.replace(',',''))/uspop)*100,'.3f')
+        percentdead = format((int(deaths.replace(',',''))/uspop)*100,'.3f')
 
         #print(results2)
         await ctx.send("Active US Cases: " + currentcases+"\nUS Deaths: " + deaths+"\nRecovered: " + discharged)
