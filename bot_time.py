@@ -10,33 +10,34 @@ class UpdateCommands(commands.Cog):
         self.bot = bot
 
 
-    @commands.command(name="corona",help="Returns coronavirus updates")
+    @commands.command(name="corona",help="Returns coronavirus updates",aliases = ['covid'])
     async def corona(self,ctx):
         page = requests.get("https://www.worldometers.info/coronavirus/country/us")
         soup = BeautifulSoup(page.content,'html.parser')
 
-        print("getting US info")
+				#scrape for info
         results2 = soup.find_all(class_="maincounter-number")
-        deaths = results2[1].text.strip()#.text.strip()
-        discharged = results2[2].text.strip()#.text.strip()
-        currentcases = results2[0].text.strip()# - int(deaths.text.replace(',',''))+int(discharged.text.replace(',',''))
-        print(currentcases)
+        deaths = results2[1].text.strip()
+        discharged = results2[2].text.strip()
+        currentcases = results2[0].text.strip()
+				
 
+				#calculate numbers
         currentcases = str(int(currentcases.replace(',',''))-int(deaths.replace(',',''))-int(discharged.replace(',','')))
         currentcases = str(format(int(currentcases),',.0f'))
 
         percentinfected = format((int(currentcases.replace(',',''))/uspop)*100,'.3f')
         percentdead = format((int(deaths.replace(',',''))/uspop)*100,'.3f')
 
-        #print(results2)
-        await ctx.send("Active US Cases: " + currentcases+"\nUS Deaths: " + deaths+"\nRecovered: " + discharged)
-        #await ctx.send("\nUS Deaths: " + deaths)
-        #await ctx.send("Recovered: " + discharged)
-        await ctx.send("About "+str(percentinfected)+"% of pop. are infected and "+str(percentdead)+"% have died.")
+        totalcases = int(currentcases.replace(',',''))+int(deaths.replace(',',''))+int(discharged.replace(',',''))
+        drate = format((int(deaths.replace(',',''))/totalcases)*100,'.3f')
+        rrate = format((int(discharged.replace(',',''))/totalcases)*100,'.3f')
 
- #       print("Getting AZ info")
-#       results3 = soup.find_all(class_="odd")
- #       print(results3)
+
+				#print the results
+        await ctx.send("Active US Cases: " + currentcases+"\nUS Deaths: " + deaths+"\nRecovered: " + discharged)
+        await ctx.send("About "+str(percentinfected)+"% of pop. are infected and "+str(percentdead)+"% have died.")
+        await ctx.send("Death Rate: "+drate+"% | Recovery Rate: "+rrate+"%")
 
 
 def setup(bot):

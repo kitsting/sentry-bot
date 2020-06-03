@@ -177,5 +177,31 @@ You can use idk the same way you use the phrase I don’t know. In informal writ
         ]
         await ctx.send(random.choice(guardquotes))
 
+
+    @commands.command(name='expand', help='space',aliases = ['exp'])
+    async def expand(self, ctx, message: str = "f"):
+      if len(message) < 2:
+        await ctx.send("Enter a valid string that's longer that 1 character you fool!")
+      else:
+        expstring = ""
+        for stri in message:
+          expstring = expstring + stri
+          expstring = expstring + " "
+        
+        await ctx.send(expstring)
+
+    @commands.command(name='expandupper', help='SPACE',aliases = ['expu'])
+    async def expandupper(self, ctx, message: str = "f"):
+      if len(message) < 2:
+        await ctx.send("Enter a valid string that's longer that 1 character you fool!")
+      else:
+        expstring = ""
+        for stri in message:
+          expstring = expstring + stri
+          expstring = expstring + " "
+        
+        await ctx.send(expstring.upper())
+
+
 def setup(bot):
     bot.add_cog(UtilCommands(bot))
