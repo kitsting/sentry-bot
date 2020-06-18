@@ -6,7 +6,6 @@ import time
 import os
 from dotenv import load_dotenv
 from discord.ext import commands
-import keep_alive
 
 load_dotenv()
 
@@ -60,8 +59,5 @@ async def on_command_error(ctx, error):
     if isinstance(error, commands.errors.CheckFailure):
         await ctx.send('You fool, your permissions are wrong. Now perish.')
         print('User tried to access a command with invalid permissions')
-
-
-keep_alive.keep_alive()
 
 bot.run(TOKEN)
